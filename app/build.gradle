@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':core')
+
+    implementation libraries.kotlin
+    //appcompat
+    implementation libraries.appcompat
+    implementation libraries.fragment
+
+    //kotlin
+    implementation libraries.kotlin
+
+    //view
+    implementation libraries.material
+    implementation libraries.constraintlayout
+
+    //network
+    implementation libraries.retrofit
+    implementation libraries.gson
+    implementation libraries.interceptor
+
+    //    //ViewModel
+    implementation libraries.viewmodel
+    implementation libraries.lifecycleExt
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt libraries.liveData
+
+
+    // Loading Image
+    implementation libraries.glide
+    kapt libraries.glideCompiler
+
+    //Dagger2
+    implementation libraries.dagger
+    implementation libraries.daggerSupport
+    kapt libraries.daggerComplier
+    implementation libraries.daggerAndroidComplier
+    kapt libraries.daggerProcessor
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
