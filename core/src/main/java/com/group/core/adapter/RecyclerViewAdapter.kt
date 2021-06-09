@@ -34,7 +34,7 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
     }
 
     fun backup() {
-        listWrapperModelsBackup = ArrayList(listWrapperModels!!.size)
+        listWrapperModelsBackup = ArrayList(listWrapperModels.size)
         try {
             for (modelWrapper in listWrapperModels) {
                 listWrapperModelsBackup.add(modelWrapper.clone())
@@ -94,7 +94,7 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
         }
         notifyItemRangeInserted(startInsertedPosition, endInsertedPosition)
         if (isScroll) {
-            recyclerView?.scrollToPosition(listWrapperModels!!.size - 1)
+            recyclerView?.scrollToPosition(listWrapperModels.size - 1)
         }
     }
 
@@ -190,8 +190,8 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
     }
 
     fun setSelectedItem(position: Int, isSelected: Boolean) {
-        if (isInSelectedMode && position >= 0 && position < listWrapperModels!!.size) {
-            val modelWrapper = listWrapperModels!![position]
+        if (isInSelectedMode && position >= 0 && position < listWrapperModels.size) {
+            val modelWrapper = listWrapperModels[position]
             if (modelWrapper.isSelected != isSelected) {
                 listWrapperModels[position].isSelected = isSelected
                 notifyItemChanged(position)
@@ -241,7 +241,7 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
         }
     }
 
-    fun getAllItem(): List<ModelWrapper>? {
+    fun getAllItem(): List<ModelWrapper> {
         return listWrapperModels
     }
 
@@ -253,7 +253,7 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
 
     fun <T> getSelectedItemModel(type: Class<T>): List<T> {
         val result = ArrayList<T>()
-        for (modelWrapper in listWrapperModels!!) {
+        for (modelWrapper in listWrapperModels) {
             val model = modelWrapper.model
             if (modelWrapper.isSelected && model != null) {
                 if (model.javaClass == type) {

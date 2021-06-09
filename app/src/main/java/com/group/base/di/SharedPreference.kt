@@ -1,4 +1,4 @@
-package com.group.core.base
+package com.group.base.di
 
 import android.content.Context
 import android.content.SharedPreferences

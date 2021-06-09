@@ -17,7 +17,7 @@ class DiffUtilCallBack(
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldItems[oldItemPosition].id == newItems.get(newItemPosition).id
+        return oldItems[oldItemPosition].id == newItems[newItemPosition].id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

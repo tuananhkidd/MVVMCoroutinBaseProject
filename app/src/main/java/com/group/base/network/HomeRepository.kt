@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.group.core.api.BaseResult
 import com.group.core.api.resultLiveDataApiNotSaveDb
 import com.group.core.extension.zip
-import com.group.core.models.Test
+import com.group.base.models.Test
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.async

@@ -16,7 +16,7 @@ class ViewController(
     var currentFragment: BaseFragment? = null
         private set
 
-    fun <T : BaseFragment> replaceFragment(type: Class<T>, data: Bundle?) {
+    fun <T : BaseFragment> replaceFragment(type: Class<T>, data: Bundle? = null) {
         try {
             currentFragment = type.newInstance()
         } catch (e: InstantiationException) {
@@ -41,7 +41,7 @@ class ViewController(
 
     fun <T : BaseFragment>addFragment(
         type: Class<T>,
-        data: Bundle?,
+        data: Bundle? = null,
         hasAnimation: Boolean = true,
         isHideOldFragment: Boolean = true
     ) {
@@ -93,7 +93,7 @@ class ViewController(
         currentFragment = newFragment
     }
 
-    fun backFromAddFragment(data: Bundle?): Boolean {
+    fun backFromAddFragment(data: Bundle? = null): Boolean {
         return if (listFragment.size >= 2) {
             listFragment.removeAt(listFragment.size - 1)
             val fragmentTransaction = fragmentManager.beginTransaction()
@@ -119,7 +119,7 @@ class ViewController(
         }
     }
 
-    fun removeAllFragmentExceptFirst(data: Bundle?): Boolean {
+    fun removeAllFragmentExceptFirst(data: Bundle? = null): Boolean {
         return if (listFragment.size >= 2) {
             val fragmentTransaction = fragmentManager.beginTransaction()
             for (i in listFragment.size - 1 downTo 1) {

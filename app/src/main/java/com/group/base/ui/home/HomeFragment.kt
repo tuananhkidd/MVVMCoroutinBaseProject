@@ -5,7 +5,7 @@ import com.group.base.R
 import com.group.base.network.HomeRepository
 import com.group.core.base.BaseFragment
 import com.group.core.extension.injectViewModel
-import com.group.core.models.Test
+import com.group.base.models.Test
 
 class HomeFragment : BaseFragment() {
 

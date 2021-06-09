@@ -1,7 +1,6 @@
 package com.group.core.base
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,14 +19,13 @@ abstract class BaseFragment : DaggerFragment() {
 
     protected var viewController : ViewController? = null
 
-    private val loadingDialog : LoadingDialog by lazy { LoadingDialog(context!!) }
+    private val loadingDialog : LoadingDialog by lazy { LoadingDialog(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewController =  (activity as BaseActivity).getViewController()
         return LayoutInflater.from(context).inflate(layoutId, container, false)
     }
 
@@ -63,11 +61,11 @@ abstract class BaseFragment : DaggerFragment() {
         when(baseResult.status){
             BaseResult.Status.LOADING -> { showLoadingDialog() }
             BaseResult.Status.SUCCESS -> {
-                hideLoadingDilog()
+                hideLoadingDialog()
                 getObjResponse(baseResult.data)
             }
             BaseResult.Status.ERROR -> {
-                hideLoadingDilog()
+                hideLoadingDialog()
             }
         }
     }
@@ -76,11 +74,11 @@ abstract class BaseFragment : DaggerFragment() {
         when(baseResult.status){
             BaseResult.Status.LOADING -> { showLoadingDialog() }
             BaseResult.Status.SUCCESS -> {
-                hideLoadingDilog()
+                hideLoadingDialog()
                 getListResponse(baseResult.data)
             }
             BaseResult.Status.ERROR -> {
-                hideLoadingDilog()
+                hideLoadingDialog()
             }
         }
     }
@@ -97,7 +95,7 @@ abstract class BaseFragment : DaggerFragment() {
         loadingDialog.show()
     }
 
-    protected fun hideLoadingDilog(){
+    protected fun hideLoadingDialog(){
         loadingDialog.hide()
     }
 

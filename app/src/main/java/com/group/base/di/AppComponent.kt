@@ -4,7 +4,7 @@ import android.app.Application
 import com.group.base.App
 import com.group.base.di.module.ActivityModule
 import com.group.base.di.module.AppModule
-import com.group.core.di.module.SharedPreferenceModule
+import com.group.base.di.module.SharedPreferenceModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule

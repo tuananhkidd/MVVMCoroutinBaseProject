@@ -1,7 +1,7 @@
-package com.group.core.di.module
+package com.group.base.di.module
 
 import android.content.Context
-import com.group.core.base.SharedPreference
+import com.group.base.di.SharedPreference
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

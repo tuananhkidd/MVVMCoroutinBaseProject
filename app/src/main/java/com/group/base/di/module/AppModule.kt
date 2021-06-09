@@ -2,7 +2,7 @@ package com.group.base.di.module
 
 import android.app.Application
 import android.content.Context
-import com.group.core.api.ApiService
+import com.group.base.api.ApiService
 import com.group.core.di.CoroutineScropeIO
 import com.group.core.di.module.ApiModule
 import dagger.Module

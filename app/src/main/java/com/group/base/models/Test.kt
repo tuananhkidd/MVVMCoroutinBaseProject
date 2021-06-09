@@ -1,4 +1,4 @@
-package com.group.core.models
+package com.group.base.models
 
 data class Test(
     var userId: String,

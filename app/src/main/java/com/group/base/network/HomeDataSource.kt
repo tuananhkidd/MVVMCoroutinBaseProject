@@ -1,6 +1,6 @@
 package com.group.base.network
 
-import com.group.core.api.ApiService
+import com.group.base.api.ApiService
 import com.group.core.api.BaseDataSource
 import javax.inject.Inject
 

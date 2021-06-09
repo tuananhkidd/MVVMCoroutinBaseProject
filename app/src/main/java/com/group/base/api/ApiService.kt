@@ -1,6 +1,6 @@
-package com.group.core.api
+package com.group.base.api
 
-import com.group.core.models.Test
+import com.group.base.models.Test
 import retrofit2.Response
 import retrofit2.http.GET
 
