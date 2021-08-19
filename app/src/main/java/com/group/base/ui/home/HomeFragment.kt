@@ -2,12 +2,13 @@ package com.group.base.ui.home
 
 import android.util.Log
 import com.group.base.R
+import com.group.base.databinding.HomeFragmentBinding
 import com.group.base.network.HomeRepository
 import com.group.core.base.BaseFragment
 import com.group.core.extension.injectViewModel
 import com.group.base.models.Test
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private lateinit var viewModel: HomeViewModel
 
@@ -21,6 +22,7 @@ class HomeFragment : BaseFragment() {
     override fun initView() {
         viewModel = injectViewModel(viewModelFactory)
         viewModel.zipTest()
+        Log.v("ahuhu","DB : ${binding.toString()}")
     }
 
     override fun initData() {

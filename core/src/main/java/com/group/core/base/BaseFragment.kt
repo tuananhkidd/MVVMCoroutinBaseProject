@@ -5,13 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.group.core.api.BaseResult
 import com.group.core_view.LoadingDialog
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment : DaggerFragment() {
+abstract class BaseFragment<DB:ViewDataBinding> : DaggerFragment() {
+
+    protected lateinit var binding : DB
 
     @Inject
     protected lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -26,7 +30,10 @@ abstract class BaseFragment : DaggerFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return LayoutInflater.from(context).inflate(layoutId, container, false)
+        val layoutInflater = LayoutInflater.from(requireContext())
+        binding = DataBindingUtil.inflate(layoutInflater, layoutId, container, false)
+        binding.lifecycleOwner = this
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
