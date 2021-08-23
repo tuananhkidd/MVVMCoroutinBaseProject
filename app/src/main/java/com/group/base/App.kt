@@ -1,10 +1,14 @@
 package com.group.base
 
-import com.group.base.di.inject.AppInjector
+import android.app.Application
 import com.group.core.base.BaseApplication
+import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
-class App : BaseApplication() {
-    override fun initDagger() {
-        AppInjector.init(this)
+@HiltAndroidApp
+class App @Inject constructor(): Application() {
+
+    override fun onCreate() {
+        super.onCreate()
     }
 }

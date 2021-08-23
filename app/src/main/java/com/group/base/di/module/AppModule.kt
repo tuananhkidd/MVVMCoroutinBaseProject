@@ -4,9 +4,10 @@ import android.app.Application
 import android.content.Context
 import com.group.base.api.ApiService
 import com.group.core.di.CoroutineScropeIO
-import com.group.core.di.module.ApiModule
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
@@ -14,7 +15,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module(includes = [ViewModelModule::class, ApiModule::class, RemoteDataSourceModule::class])
+@Module(includes = [ApiModule::class, RemoteDataSourceModule::class])
+@InstallIn(SingletonComponent::class)
 class AppModule {
     @Singleton
     @Provides

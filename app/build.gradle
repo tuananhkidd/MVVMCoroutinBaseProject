@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -44,6 +45,11 @@ dependencies {
     //appcompat
     implementation libraries.appcompat
     implementation libraries.fragment
+
+    implementation libraries.hilt
+    kapt libraries.hiltSupport
+//    implementation libraries.hiltLifecyle
+    kapt libraries.hiltLifecyleCompiler
 
     //kotlin
     implementation libraries.kotlin

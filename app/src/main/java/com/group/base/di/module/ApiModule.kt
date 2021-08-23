@@ -1,14 +1,15 @@
-package com.group.core.di.module
+package com.group.base.di.module
 
 import com.google.gson.Gson
 import com.group.core.BuildConfig
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
 import okhttp3.logging.HttpLoggingInterceptor.Level.NONE
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -17,6 +18,7 @@ import javax.inject.Singleton
  * Dagger module to provide core data functionality.
  */
 @Module
+@InstallIn(SingletonComponent::class)
 class ApiModule {
 
     @Provides
@@ -44,7 +46,7 @@ class ApiModule {
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
             GsonConverterFactory.create(gson)
 
-    @Provides
-    @Singleton
-    fun provideRxAdapter() : RxJava2CallAdapterFactory = RxJava2CallAdapterFactory.create()
+//    @Provides
+//    @Singleton
+//    fun provideRxAdapter() : RxJava2CallAdapterFactory = RxJava2CallAdapterFactory.create()
 }

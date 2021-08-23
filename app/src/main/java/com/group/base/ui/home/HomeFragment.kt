@@ -1,16 +1,18 @@
 package com.group.base.ui.home
 
 import android.util.Log
+import androidx.fragment.app.viewModels
 import com.group.base.R
 import com.group.base.databinding.HomeFragmentBinding
 import com.group.base.network.HomeRepository
 import com.group.core.base.BaseFragment
-import com.group.core.extension.injectViewModel
 import com.group.base.models.Test
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
-    private lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun backFromAddFragment() {
 
@@ -20,7 +22,6 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
         get() = R.layout.home_fragment
 
     override fun initView() {
-        viewModel = injectViewModel(viewModelFactory)
         viewModel.zipTest()
         Log.v("ahuhu","DB : ${binding.toString()}")
     }

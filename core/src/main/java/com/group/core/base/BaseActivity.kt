@@ -1,16 +1,11 @@
 package com.group.core.base
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import com.group.core.define.Constants
-import dagger.android.support.DaggerAppCompatActivity
 
-abstract class BaseActivity : DaggerAppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
     private var viewController : ViewController? = null
-    private var lastTimeClick: Long = 0
 
     fun getViewController() : ViewController {
         if(viewController == null){
@@ -28,18 +23,6 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
         initData()
         initListener()
     }
-
-    //click able
-    val isDoubleClick: Boolean
-        get() {
-            val timeNow = System.currentTimeMillis()
-            if (timeNow - lastTimeClick >= Constants.DURATION_TIME_CLICKABLE) {
-                //click able
-                lastTimeClick = timeNow
-                return false
-            }
-            return true
-        }
 
     override fun onBackPressed() {
         if(viewController!= null && viewController?.currentFragment!=null){

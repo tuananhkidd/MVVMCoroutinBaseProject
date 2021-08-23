@@ -3,7 +3,9 @@ package com.group.base.ui
 import com.group.base.R
 import com.group.base.ui.home.HomeFragment
 import com.group.core.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     override val layoutId: Int

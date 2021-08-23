@@ -7,18 +7,16 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.group.core.api.BaseResult
 import com.group.core_view.LoadingDialog
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment<DB:ViewDataBinding> : DaggerFragment() {
+abstract class BaseFragment<DB:ViewDataBinding> : Fragment() {
 
     protected lateinit var binding : DB
 
-    @Inject
-    protected lateinit var viewModelFactory: ViewModelProvider.Factory
     private var lastTimeClick: Long = 0
 
     protected var viewController : ViewController? = null

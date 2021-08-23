@@ -78,6 +78,8 @@ dependencies {
     kapt libraries.daggerComplier
     implementation libraries.daggerAndroidComplier
     kapt libraries.daggerProcessor
+//    implementation libraries.hilt
+//    kapt libraries.hiltSupport
 
     //glide
     implementation libraries.glide

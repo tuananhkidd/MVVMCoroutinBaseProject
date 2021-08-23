@@ -1,18 +1,12 @@
 package com.group.core.base
 
-import android.app.Activity
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ProcessLifecycleOwner
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
 
-abstract class BaseApplication : Application(), HasActivityInjector ,LifecycleObserver{
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+abstract class BaseApplication : Application() ,LifecycleObserver{
+
 
     companion object{
         lateinit var context: Context
@@ -26,9 +20,6 @@ abstract class BaseApplication : Application(), HasActivityInjector ,LifecycleOb
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingAndroidInjector
-    }
 
     abstract fun initDagger()
 

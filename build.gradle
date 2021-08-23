@@ -81,6 +81,9 @@ buildscript {
                 hilt            : "com.google.dagger:hilt-android:${versions.hilt}",
                 hiltSupport     : "com.google.dagger:hilt-android-compiler:${versions.hilt}",
 
+                hiltLifecyle    : "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03",
+                hiltLifecyleCompiler : "androidx.hilt:hilt-compiler:1.0.0-alpha03",
+
                 //dagger
                 //Dagger2
                 dagger            : "com.google.dagger:dagger:$versions.dagger_version",
@@ -119,6 +122,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.0"
         classpath libraries.kotlinGradle
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.35.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
